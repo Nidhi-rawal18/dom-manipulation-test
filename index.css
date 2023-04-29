@@ -1,0 +1,38 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+
+}
+.card{
+  
+   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75)
+}
+.poster{
+    width: 100%;
+}
+
+.hours{
+   margin-left: 20px;
+}
+.modules{
+    margin-left: 20px;
+}
+.title{
+    margin-left: 20px;
+}
+.creater{
+    margin-left: 20px;
+}
+.type{
+    margin-left: 20px;
+}
+.level{
+    margin-left: 20px;
+}
+.btn{
+    margin-left: 100px;
+    width: 50%;
+    padding: 5px;  
+    margin-bottom: 5px;     
+}

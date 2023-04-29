@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 style="text-align: center;">COURSES</h1>
+    <div id="container">
+          
+    </div>
+    <script>
+        const container = document.getElementById('container');
+         const url = 'https://nutty-mite-flip-flops.cyclic.app/course';
+
+        function getData(){
+            fetch(url).then((res)=>{
+                res = res.json();
+                return res;
+              }).then((res)=>{
+                console.log(res);
+                mapData(res);
+              }).catch((err)=>{
+                console.log(err);
+              })
+            }
+             const mapData =(data)=>{
+                data.map((el)=>{
+                    let card = document.createElement('div');
+                    card.setAttribute("class","card");
+                    let poster = document.createElement('img');
+                    poster.src = el.url;
+                    poster.setAttribute("class","poster");
+                   
+
+
+                    let title = document.createElement('h3');
+                    title.innerText = "Title:-" + el.title;
+                    title.setAttribute("class"," title");
+
+                    let creater = document.createElement('h4');
+                    creater.innerText = "Creater:-" + el.creater;
+                    creater.setAttribute("class","creater");
+ 
+                    let hours = document.createElement('h5');
+                    hours.innerText = "Hours:-"  + el.hours;
+                    hours.setAttribute("class","hours");
+
+                    let modules = document.createElement('h5');
+                    modules.innerText = "Module:-"  + el.modules;
+                    modules.setAttribute("class","modules");
+
+                    let level = document.createElement('h4');
+                    level.innerText = "Level:-"  + el.level;
+                    level.setAttribute("class","level");
+
+                    let type = document.createElement('h4');
+                    type.innerText = "Type:-"  + el.type;
+                    type.setAttribute("class","type");
+
+                    let btn = document.createElement('button');
+                    btn.innerText = 'Add';
+                    btn.addEventListener('click',()=>{
+                        console.log("im in");
+                        window.location.href = './Add.html';
+                   })
+                   btn.setAttribute("class","btn");
+
+                    card.append(poster,title,creater, hours,modules,level,type,btn);
+                    container.append(card);
+                })
+             }
+ 
+
+        getData();
+    </script>
+</body>
+</html>
